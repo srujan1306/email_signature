@@ -1,0 +1,27 @@
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Procstat Email Signature </mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="employeeForm" (ngSubmit)="createSignature()" class="form">
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" required />
+
+    <label for="designation">Designation:</label>
+    <input id="designation" formControlName="designation" required />
+
+    <label for="email">Email Address:</label>
+    <input id="email" formControlName="email" required />
+
+    <label for="phone_number">Phone:</label>
+    <input id="phone_number" formControlName="phone_number" required />
+
+    <label for="image_url">Image Url:</label>
+    <input id="image_url" formControlName="image_url" required />
+
+    <label for="linkedIn_url">LinkedIn Url:</label>
+    <input id="linkedIn_url" formControlName="linkedIn_url" required />
+
+    <button type="submit">Submit</button>
+  </form>
+</mat-card>

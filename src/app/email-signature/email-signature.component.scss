@@ -1,7 +1,143 @@
 .main_container {
-  height: 160px;
+  position: relative;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  height: 158px;
   width: 520px;
   background: url("../../assets/background.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.image_container {
+  margin-left: 10px;
+  height: 135px;
+  width: 135px;
+  border: solid 2.5px #98ca3e;
+  border-radius: 20px;
+}
+.employee_details_container {
+  margin-left: 14px;
+  height: 100%;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .name {
+    font-size: 20px;
+    margin: 0px;
+    color: white;
+    padding-top: 15px;
+  }
+  .role {
+    font-size: 14px;
+    margin: 0px;
+    color: #98ca3e;
+  }
+}
+.name_role_container {
+  display: flex;
+  flex-direction: column;
+}
+.contact_details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 20px;
+  gap: 8px;
+  padding-bottom: 18px;
+}
+.call {
+  height: 15px;
+  width: 15px;
+  margin-right: 10px;
+  background-image: url("../../assets/call.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.mail {
+  height: 15px;
+  width: 20px;
+  background-image: url("../../assets/mail.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.procstat_info {
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 19%;
+  justify-content: space-between;
+}
+.social_media {
+  margin: 8px 0px;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+.facebook {
+  margin: 0px 4px;
+  height: auto;
+  width: 16px;
+  background-image: url("../../assets/facebook.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.linkedIn {
+  margin: 0px 4px;
+  height: auto;
+  width: 16px;
+  background-image: url("../../assets/linkedIn.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.twitter {
+  margin: 0px 4px;
+  height: auto;
+  width: 16px;
+  background-image: url("../../assets/twitter.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.instagram {
+  margin: 0px 4px;
+  height: auto;
+  width: 16px;
+  background-image: url("../../assets/instagram.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+// .procstat_logo {
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   height: 40px;
+//   width: 200px;
+// }
+
+.procstat {
+  position: absolute;
+  height: 50px;
+  width: 18%;
+  background: url("../../assets/procstat_logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  right: 115px;
+  bottom: 6px;
+}
+.proclink_venture {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  height: 10px;
+  width: 16%;
+  background: url("../../assets/_A_Proclink_Venture.png");
+
   background-repeat: no-repeat;
   background-size: contain;
 }

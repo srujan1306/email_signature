@@ -1,4 +1,4 @@
-<mat-card class="example-card" appearance="outlined">
+<mat-card class="mat_card" appearance="outlined">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>Procstat Email Signature </mat-card-title>
@@ -16,12 +16,21 @@
     <label for="phone_number">Phone:</label>
     <input id="phone_number" formControlName="phone_number" required />
 
-    <label for="image_url">Image Url:</label>
-    <input id="image_url" formControlName="image_url" required />
+    <label for="file">Upload Profile Image:</label>
+    <input type="file" id="file" />
+
+    <label for="facebook_url">Facebook Url:</label>
+    <input id="facebook_url" formControlName="facebook_url" required />
 
     <label for="linkedIn_url">LinkedIn Url:</label>
     <input id="linkedIn_url" formControlName="linkedIn_url" required />
 
-    <button type="submit">Submit</button>
+    <label for="twitter_url">Twitter Url:</label>
+    <input id="twitter_url" formControlName="twitter_url" required />
+
+    <label for="instagran_url">Instagram Url:</label>
+    <input id="instagran_url" formControlName="instagran_url" required />
+
+    <button type="submit">Get Email Signature</button>
   </form>
 </mat-card>

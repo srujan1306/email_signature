@@ -217,7 +217,7 @@ export class EmailSignatureComponent implements OnInit {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'email_signature.html'; // Specify the name of the file
+    a.download = `${this.employee_details.full_name}_ES.html`; // Specify the name of the file
     a.click();
     URL.revokeObjectURL(url); // Clean up the URL.createObjectURL
   }

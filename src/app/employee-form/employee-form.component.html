@@ -4,33 +4,38 @@
     <mat-card-title>Procstat Email Signature </mat-card-title>
   </mat-card-header>
   <form [formGroup]="employeeForm" (ngSubmit)="createSignature()" class="form">
-    <label for="name">Name:</label>
-    <input id="name" formControlName="name" required />
+    <label for="full_name">Full Name:</label>
+    <input id="full_name" formControlName="full_name" required />
 
     <label for="designation">Designation:</label>
     <input id="designation" formControlName="designation" required />
 
     <label for="email">Email Address:</label>
-    <input id="email" formControlName="email" required />
+    <input id="email" formControlName="email_address" required />
 
     <label for="phone_number">Phone:</label>
     <input id="phone_number" formControlName="phone_number" required />
 
     <label for="file">Upload Profile Image:</label>
-    <input type="file" id="file" />
+    <input
+      type="file"
+      id="file"
+      formControlName="file"
+      (change)="onFileChange($event)"
+    />
 
-    <label for="facebook_url">Facebook Url:</label>
-    <input id="facebook_url" formControlName="facebook_url" required />
+    <label for="facebook_link">Facebook Url:</label>
+    <input id="facebook_link" formControlName="facebook_link" required />
 
-    <label for="linkedIn_url">LinkedIn Url:</label>
-    <input id="linkedIn_url" formControlName="linkedIn_url" required />
+    <label for="linkedIn_link">LinkedIn Url:</label>
+    <input id="linkedIn_link" formControlName="linkedIn_link" required />
 
-    <label for="twitter_url">Twitter Url:</label>
-    <input id="twitter_url" formControlName="twitter_url" required />
+    <label for="twitter_link">Twitter Url:</label>
+    <input id="twitter_link" formControlName="twitter_link" required />
 
-    <label for="instagran_url">Instagram Url:</label>
-    <input id="instagran_url" formControlName="instagran_url" required />
+    <label for="instagram_link">Instagram Url:</label>
+    <input id="instagram_link" formControlName="instagram_link" required />
 
-    <button type="submit">Get Email Signature</button>
+    <button type="submit">Generate Email Signature</button>
   </form>
 </mat-card>

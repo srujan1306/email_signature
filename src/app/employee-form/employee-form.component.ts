@@ -9,6 +9,8 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { EmployeeDetailsService } from '../employee-details.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-employee-form',
   standalone: true,
@@ -24,19 +26,69 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EmployeeFormComponent {
   employeeForm: FormGroup;
-  constructor(private fb: FormBuilder, httpClient: HttpClient) {
+  formData = new FormData();
+  selectedFile: File | null = null;
+  constructor(
+    private fb: FormBuilder,
+    httpClient: HttpClient,
+    private router: Router,
+    private EmployeeDetailsService: EmployeeDetailsService
+  ) {
     this.employeeForm = this.fb.group({
-      name: [''],
+      full_name: [''],
       designation: [''],
-      email: [''],
+      email_address: [''],
       phone_number: [''],
-      image_url: [''],
-      linkedIn_url: [''],
+      file: [''],
+      facebook_link: [''],
+      linkedIn_link: [''],
+      twitter_link: [''],
+      instagram_link: [''],
     });
   }
   createSignature() {
-    const employee_details = this.employeeForm.value;
-    // this.downloadTemplate(employee_details);
+    this.formData.append(
+      'full_name',
+      this.employeeForm.get('full_name')?.value
+    );
+    this.formData.append(
+      'designation',
+      this.employeeForm.get('designation')?.value
+    );
+    this.formData.append(
+      'email_address',
+      this.employeeForm.get('email_address')?.value
+    );
+    this.formData.append(
+      'phone_number',
+      this.employeeForm.get('phone_number')?.value
+    );
+    this.formData.append(
+      'facebook_link',
+      this.employeeForm.get('facebook_link')?.value
+    );
+    this.formData.append(
+      'linkedIn_link',
+      this.employeeForm.get('linkedIn_link')?.value
+    );
+    this.formData.append(
+      'twitter_link',
+      this.employeeForm.get('twitter_link')?.value
+    );
+    this.formData.append(
+      'instagram_link',
+      this.employeeForm.get('instagram_link')?.value
+    );
+    if (this.selectedFile) {
+      this.formData.append('file', this.selectedFile);
+    }
+    this.EmployeeDetailsService.generate_email_signature(this.formData);
+  }
+  onFileChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+    }
   }
   // downloadTemplate(userDetails: any) {
   //   // Load the HTML template

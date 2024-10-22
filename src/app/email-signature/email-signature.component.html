@@ -1,18 +1,17 @@
 <div class="main_container">
   <div class="image_container">
-    <img
-      src="https://assets.promptbase.com/DALLE_IMAGES/HnvSAlkGXZM5ZutK8RanbhCjk262/resized/1708040290227j_800x800.webp?alt=media&token=0cbb2a16-3478-4853-b1e3-fa4a0d6443ac"
-      alt="profile picture"
-    />
+    <img src="{{ employee_details.profile_imageUrl }}" alt="profile picture" />
   </div>
   <div class="employee_details_container">
     <div class="name_role_container">
-      <p class="name">Srujan Pothu</p>
-      <p class="role">Graduate Engineer Trainee</p>
+      <p class="name">{{ employee_details.full_name }}</p>
+      <p class="role">{{ employee_details.designation }}</p>
     </div>
     <div class="contact_details">
-      <a href="tel:+91"> <div class="call"></div></a>
-      <a href="mailto:">
+      <a href="tel:+91{{ employee_details.phone_number }}">
+        <div class="call"></div
+      ></a>
+      <a href="mailto:{{ employee_details.email_address }}">
         <div class="mail"></div>
       </a>
     </div>
@@ -28,3 +27,4 @@
   <div class="procstat"></div>
   <div class="proclink_venture"></div>
 </div>
+<button (click)="downloadSignature()">Download Signature</button>

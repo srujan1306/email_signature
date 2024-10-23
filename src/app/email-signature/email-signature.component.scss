@@ -118,13 +118,6 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
-// .procstat_logo {
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   height: 40px;
-//   width: 200px;
-// }
 
 .procstat {
   position: absolute;
@@ -146,4 +139,31 @@
 
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.social-icon {
+  display: inline-block;
+  width: 16px;
+  height: auto;
+  background-size: 100%;
+  transition: transform 0.2s;
+}
+
+.facebook {
+  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/facebook.svg");
+}
+
+.linkedIn {
+  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/linkedIn.svg");
+}
+
+.twitter {
+  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/twitter.svg");
+}
+
+.instagram {
+  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/instagram.svg");
+}
+.social-icon:hover {
+  transform: scale(1.1);
 }

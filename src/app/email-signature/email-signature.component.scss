@@ -73,7 +73,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 19%;
+  width: 20%;
   justify-content: space-between;
 }
 .social_media {
@@ -82,41 +82,8 @@
   height: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  padding-right: 10px;
-}
-
-.facebook {
-  margin: 0px 4px;
-  height: auto;
-  width: 16px;
-  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/facebook.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.linkedIn {
-  margin: 0px 4px;
-  height: auto;
-  width: 17px;
-  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/linkedIn.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.twitter {
-  margin: 0px 4px;
-  height: auto;
-  width: 16px;
-  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/twitter.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.instagram {
-  margin: 0px 4px;
-  height: auto;
-  width: 16px;
-  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/instagram.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
+  justify-content: flex-start;
+  gap: 8px;
 }
 
 .procstat {
@@ -143,9 +110,10 @@
 
 .social-icon {
   display: inline-block;
-  width: 16px;
+  width: 18px;
   height: auto;
   background-size: 100%;
+  background-repeat: no-repeat;
   transition: transform 0.2s;
 }
 

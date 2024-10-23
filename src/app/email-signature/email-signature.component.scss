@@ -135,3 +135,28 @@
 .social-icon:hover {
   transform: scale(1.1);
 }
+
+//---------------END for downloadable HTML
+.download {
+  padding: 20px;
+  width: 200px;
+  height: 45px;
+}
+
+button {
+  background: #98ca3e;
+  color: white;
+  border: none;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+button:hover {
+  transform: scale(1.025);
+}

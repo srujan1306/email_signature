@@ -1,41 +1,159 @@
-<mat-card class="mat_card" appearance="outlined">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Procstat Email Signature </mat-card-title>
-  </mat-card-header>
-  <form [formGroup]="employeeForm" (ngSubmit)="createSignature()" class="form">
-    <label for="full_name">Full Name:</label>
-    <input id="full_name" formControlName="full_name" required />
+<!-- <body> -->
+<!-- <div class="form_container">
+    <div class="heading">
+      <h1>Fill your details to generate Email Signature</h1>
+    </div>
+    <form
+      [formGroup]="employeeForm"
+      (ngSubmit)="createSignature()"
+      class="form"
+    >
+      <label for="full_name">Full Name:</label>
+      <input id="full_name" formControlName="full_name" required />
 
-    <label for="designation">Designation:</label>
-    <input id="designation" formControlName="designation" required />
+      <label for="designation">Designation:</label>
+      <input id="designation" formControlName="designation" required />
 
-    <label for="email">Email Address:</label>
-    <input id="email" formControlName="email_address" required />
+      <label for="email">Email Address:</label>
+      <input id="email" formControlName="email_address" required />
 
-    <label for="phone_number">Phone:</label>
-    <input id="phone_number" formControlName="phone_number" required />
+      <label for="phone_number">Phone:</label>
+      <input id="phone_number" formControlName="phone_number" required />
 
-    <label for="file">Upload Profile Image:</label>
-    <input
-      type="file"
-      id="file"
-      formControlName="file"
-      (change)="onFileChange($event)"
-    />
+      <label for="file">Upload Profile Image:</label>
+      <input
+        type="file"
+        id="file"
+        formControlName="file"
+        (change)="onFileChange($event)"
+      />
 
-    <label for="facebook_link">Facebook Url:</label>
-    <input id="facebook_link" formControlName="facebook_link" required />
+      <label for="facebook_link">Facebook Url:</label>
+      <input id="facebook_link" formControlName="facebook_link" required />
 
-    <label for="linkedIn_link">LinkedIn Url:</label>
-    <input id="linkedIn_link" formControlName="linkedIn_link" required />
+      <label for="linkedIn_link">LinkedIn Url:</label>
+      <input id="linkedIn_link" formControlName="linkedIn_link" required />
 
-    <label for="twitter_link">Twitter Url:</label>
-    <input id="twitter_link" formControlName="twitter_link" required />
+      <label for="twitter_link">Twitter Url:</label>
+      <input id="twitter_link" formControlName="twitter_link" required />
 
-    <label for="instagram_link">Instagram Url:</label>
-    <input id="instagram_link" formControlName="instagram_link" required />
+      <label for="instagram_link">Instagram Url:</label>
+      <input id="instagram_link" formControlName="instagram_link" required />
 
-    <button type="submit">Generate Email Signature</button>
-  </form>
-</mat-card>
+      <button type="submit">Generate Email Signature</button>
+    </form>
+  </div> -->
+
+<div class="container">
+  <div class="card">
+    <div class="card-image">
+      <h2 class="card-heading">
+        Get started !
+        <small>Create your Email Signature</small>
+      </h2>
+    </div>
+    <form
+      [formGroup]="employeeForm"
+      (ngSubmit)="createSignature()"
+      class="card-form"
+    >
+      <div class="input">
+        <input
+          type="text"
+          class="input-field"
+          formControlName="full_name"
+          required
+        />
+        <label class="input-label">Full name</label>
+      </div>
+      <div class="input">
+        <input
+          type="text"
+          class="input-field"
+          formControlName="designation"
+          required
+        />
+        <label class="input-label">Designation</label>
+      </div>
+      <div class="input">
+        <input
+          type="email"
+          class="input-field"
+          formControlName="email_address"
+          required
+        />
+        <label class="input-label">Email Address</label>
+      </div>
+      <div class="input">
+        <input
+          type="tel"
+          class="input-field"
+          formControlName="phone_number"
+          required
+        />
+        <label class="input-label">Phone Number</label>
+      </div>
+      <div class="image_container">
+        <h1>Upload your Profile Image</h1>
+        <div class="avatar-upload">
+          <div class="avatar-edit">
+            <input
+              type="file"
+              id="imageUpload"
+              accept=".png, .jpg, .jpeg"
+              formControlName="file"
+              (change)="onFileChange($event)"
+            />
+            <label class="upload" for="imageUpload"></label>
+          </div>
+          <div class="avatar-preview">
+            <div
+              id="imagePreview"
+              [ngStyle]="{ 'background-image': 'url(' + imageUrl + ')' }"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div class="input">
+        <input
+          type="text"
+          class="input-field"
+          formControlName="facebook_link"
+          required
+        />
+        <label class="input-label">Facebook Profile Url</label>
+      </div>
+      <div class="input">
+        <input
+          type="text"
+          class="input-field"
+          formControlName="linkedIn_link"
+          required
+        />
+        <label class="input-label">LinkedIn Profile Url</label>
+      </div>
+      <div class="input">
+        <input
+          type="text"
+          class="input-field"
+          formControlName="twitter_link"
+          required
+        />
+        <label class="input-label">X(Twitter) Profile Url</label>
+      </div>
+      <div class="input">
+        <input
+          type="text"
+          class="input-field"
+          formControlName="instagram_link"
+          required
+        />
+        <label class="input-label">Instagram Profile Url</label>
+      </div>
+      <div class="action">
+        <button class="action-button">Generate Email Signature</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- </body> -->

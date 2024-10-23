@@ -11,6 +11,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { EmployeeDetailsService } from '../employee-details.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-employee-form',
   standalone: true,
@@ -20,6 +21,7 @@ import { Router } from '@angular/router';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
+    CommonModule,
   ],
   templateUrl: './employee-form.component.html',
   styleUrl: './employee-form.component.scss',
@@ -84,49 +86,22 @@ export class EmployeeFormComponent {
     }
     this.EmployeeDetailsService.generate_email_signature(this.formData);
   }
-  onFileChange(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.selectedFile = input.files[0];
+  // onFileChange(event: Event) {
+  //   const input = event.target as HTMLInputElement;
+  //   if (input.files && input.files.length > 0) {
+  //     this.selectedFile = input.files[0];
+  //   }
+  // }
+  imageUrl: string = 'http://i.pravatar.cc/500?img=7'; // Default image
+
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageUrl = e.target.result;
+      };
+      reader.readAsDataURL(file);
     }
   }
-  // downloadTemplate(userDetails: any) {
-  //   // Load the HTML template
-  //   this.http
-  //     .get('assets/email-signature.html', { responseType: 'text' })
-  //     .subscribe((signatureHtml: string) => {
-  //       // Replace placeholders with actual user details
-  //       const populatedSignatureHtml = signatureHtml
-  //         .replace('{{name}}', userDetails.name)
-  //         .replace('{{email}}', userDetails.email);
-
-  //       const htmlContent = `
-  //         <html>
-  //           <head>
-  //             <title>User Details</title>
-  //             <link rel="stylesheet" href="path/to/your/styles.css">
-  //             <script src="path/to/your/script.js"></script>
-  //           </head>
-  //           <body>
-  //             <h1>User Details</h1>
-  //             <p><strong>Name:</strong> ${userDetails.name}</p>
-  //             <p><strong>Email:</strong> ${userDetails.email}</p>
-  //             <img src="path/to/your/image.png" alt="User Image">
-  //             ${populatedSignatureHtml} <!-- Include the email signature here -->
-  //           </body>
-  //         </html>
-  //       `;
-
-  //       const blob = new Blob([htmlContent], { type: 'text/html' });
-  //       const url = window.URL.createObjectURL(blob);
-
-  //       const a = document.createElement('a');
-  //       a.href = url;
-  //       a.download = 'user-details.html';
-  //       document.body.appendChild(a);
-  //       a.click();
-  //       document.body.removeChild(a);
-  //       window.URL.revokeObjectURL(url);
-  //     });
-  // }
 }

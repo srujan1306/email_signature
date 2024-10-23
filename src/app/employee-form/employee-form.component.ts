@@ -7,6 +7,7 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { EmployeeDetailsService } from '../employee-details.service';
@@ -39,10 +40,10 @@ export class EmployeeFormComponent {
     private EmployeeDetailsService: EmployeeDetailsService
   ) {
     this.employeeForm = this.fb.group({
-      full_name: [''],
-      designation: [''],
-      email_address: [''],
-      phone_number: [''],
+      full_name: ['', [Validators.required, Validators.minLength(2)]],
+      designation: ['', [Validators.required, Validators.minLength(2)]],
+      email_address: ['', [Validators.required, Validators.email]],
+      phone_number: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       file: [''],
       facebook_link: [''],
       linkedIn_link: [''],
@@ -99,15 +100,52 @@ export class EmployeeFormComponent {
   //     this.selectedFile = input.files[0];
   //   }
   // }
+  errorMessage: string | null = null;
+  maxFileSize: number = 5 * 1024 * 1024;
+  onFileChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
 
-  onFileChange(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.imageUrl = e.target.result;
-      };
-      reader.readAsDataURL(file);
+      this.errorMessage = null;
+
+      const validTypes = ['image/png', 'image/jpg', 'image/jpeg'];
+      if (!validTypes.includes(file.type)) {
+        this.errorMessage = 'Please upload a valid image (PNG, JPG, JPEG).';
+        return;
+      }
+
+      if (file.size > this.maxFileSize) {
+        this.errorMessage = 'File size must be less than 5 MB.';
+        return;
+      }
+
+      this.selectedFile = file;
     }
+  }
+
+  get full_name() {
+    return this.employeeForm.get('full_name');
+  }
+  get designation() {
+    return this.employeeForm.get('designation');
+  }
+  get phone_number() {
+    return this.employeeForm.get('phone_number');
+  }
+  get email_address() {
+    return this.employeeForm.get('email_address');
+  }
+  get facebook_link() {
+    return this.employeeForm.get('facebook_link');
+  }
+  get linkedIn_link() {
+    return this.employeeForm.get('linkedIn_link');
+  }
+  get twitter_link() {
+    return this.employeeForm.get('twitter_link');
+  }
+  get instagram_link() {
+    return this.employeeForm.get('instagram_link');
   }
 }

@@ -117,8 +117,7 @@ input {
   font: inherit;
   font-size: 1.125rem;
   padding: 0.25rem 0;
-  &:focus,
-  &:valid {
+  &:focus {
     outline: 0;
     border-bottom-color: #6658d3;
     & + .input-label {
@@ -270,4 +269,15 @@ button:active {
   100% {
     transform: rotate(360deg);
   }
+}
+//=----------------
+.validation_container {
+  height: 18px;
+  width: 100%;
+}
+.custom-error {
+  color: #f44336;
+  font-size: 0.7em;
+  margin-top: 4px;
+  width: max-content;
 }

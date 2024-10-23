@@ -66,6 +66,15 @@
         />
         <label class="input-label">Full name</label>
       </div>
+      <div class="validation_container">
+        @if (full_name?.touched) { @if (full_name?.hasError('required')) {
+        <div class="custom-error">Name is <strong>required</strong>.</div>
+        } @if (full_name?.hasError('minlength')) {
+        <div class="custom-error">
+          Full Name is <strong>very short</strong>.
+        </div>
+        } }
+      </div>
       <div class="input">
         <input
           type="text"
@@ -74,6 +83,17 @@
           required
         />
         <label class="input-label">Designation</label>
+      </div>
+      <div class="validation_container">
+        @if (designation?.touched) { @if (designation?.hasError('required')) {
+        <div class="custom-error">
+          Designation is <strong>required</strong>.
+        </div>
+        } @if (designation?.hasError('minlength')) {
+        <div class="custom-error">
+          Designation is <strong>very short</strong>.
+        </div>
+        } }
       </div>
       <div class="input">
         <input
@@ -84,6 +104,15 @@
         />
         <label class="input-label">Email Address</label>
       </div>
+      <div class="validation_container">
+        @if(email_address?.touched) { @if(email_address?.hasError('required')) {
+        <div class="custom-error">Email is <strong>required</strong>.</div>
+        } @if (email_address?.hasError('email')) {
+        <div class="custom-error">
+          Please enter a <strong>valid email address.</strong>
+        </div>
+        } }
+      </div>
       <div class="input">
         <input
           type="tel"
@@ -92,6 +121,17 @@
           required
         />
         <label class="input-label">Phone Number</label>
+      </div>
+      <div class="validation_container">
+        @if(phone_number?.touched){ @if (phone_number?.hasError('required')) {
+        <div class="custom-error">
+          Phone number is <strong>required</strong>.
+        </div>
+        } @if (phone_number?.hasError('pattern')) {
+        <div class="custom-error">
+          Phone number is <strong>invalid</strong>.
+        </div>
+        } }
       </div>
       <div class="image_container">
         <h1>Upload your Profile Image</h1>
@@ -114,12 +154,17 @@
           </div>
         </div>
       </div>
+      <div class="validation_container">
+        @if(errorMessage){
+        <div class="custom-error">{{ errorMessage }}</div>
+
+        }
+      </div>
       <div class="input">
         <input
           type="text"
           class="input-field"
           formControlName="facebook_link"
-          required
         />
         <label class="input-label">Facebook Profile Url</label>
       </div>
@@ -128,17 +173,11 @@
           type="text"
           class="input-field"
           formControlName="linkedIn_link"
-          required
         />
         <label class="input-label">LinkedIn Profile Url</label>
       </div>
       <div class="input">
-        <input
-          type="text"
-          class="input-field"
-          formControlName="twitter_link"
-          required
-        />
+        <input type="text" class="input-field" formControlName="twitter_link" />
         <label class="input-label">X(Twitter) Profile Url</label>
       </div>
       <div class="input">
@@ -146,7 +185,6 @@
           type="text"
           class="input-field"
           formControlName="instagram_link"
-          required
         />
         <label class="input-label">Instagram Profile Url</label>
       </div>

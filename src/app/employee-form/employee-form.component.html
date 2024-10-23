@@ -151,9 +151,14 @@
         <label class="input-label">Instagram Profile Url</label>
       </div>
       <div class="action">
-        <button class="action-button">Generate Email Signature</button>
+        <button [disabled]="isLoading">
+          @if(!isLoading){
+          <span class="button_text">Generate Email Signature</span>
+          } @if (isLoading) {
+          <span class="loader"></span>
+          }
+        </button>
       </div>
     </form>
   </div>
 </div>
-<!-- </body> -->

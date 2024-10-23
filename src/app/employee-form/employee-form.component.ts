@@ -30,6 +30,8 @@ export class EmployeeFormComponent {
   employeeForm: FormGroup;
   formData = new FormData();
   selectedFile: File | null = null;
+  imageUrl: string = 'http://i.pravatar.cc/500?img=7'; // Default image
+  isLoading: boolean = false;
   constructor(
     private fb: FormBuilder,
     httpClient: HttpClient,
@@ -49,6 +51,7 @@ export class EmployeeFormComponent {
     });
   }
   createSignature() {
+    this.isLoading = true;
     this.formData.append(
       'full_name',
       this.employeeForm.get('full_name')?.value
@@ -84,7 +87,11 @@ export class EmployeeFormComponent {
     if (this.selectedFile) {
       this.formData.append('file', this.selectedFile);
     }
-    this.EmployeeDetailsService.generate_email_signature(this.formData);
+    this.EmployeeDetailsService.generate_email_signature(this.formData).then(
+      () => {
+        this.isLoading = false;
+      }
+    );
   }
   // onFileChange(event: Event) {
   //   const input = event.target as HTMLInputElement;
@@ -92,7 +99,6 @@ export class EmployeeFormComponent {
   //     this.selectedFile = input.files[0];
   //   }
   // }
-  imageUrl: string = 'http://i.pravatar.cc/500?img=7'; // Default image
 
   onFileChange(event: any) {
     const file = event.target.files[0];

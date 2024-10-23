@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {
   FormBuilder,
@@ -16,14 +14,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-employee-form',
   standalone: true,
-  imports: [
-    MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-  ],
+  imports: [MatFormFieldModule, FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './employee-form.component.html',
   styleUrl: './employee-form.component.scss',
 })
@@ -111,7 +102,7 @@ export class EmployeeFormComponent {
 
       const validTypes = ['image/png', 'image/jpg', 'image/jpeg'];
       if (!validTypes.includes(file.type)) {
-        this.errorMessage = 'Please upload a valid image (PNG, JPG, JPEG).';
+        this.errorMessage = 'Please upload a valid image (.png, .jpg, .jpeg).';
         return;
       }
 

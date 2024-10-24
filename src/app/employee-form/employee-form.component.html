@@ -1,49 +1,3 @@
-<!-- <body> -->
-<!-- <div class="form_container">
-    <div class="heading">
-      <h1>Fill your details to generate Email Signature</h1>
-    </div>
-    <form
-      [formGroup]="employeeForm"
-      (ngSubmit)="createSignature()"
-      class="form"
-    >
-      <label for="full_name">Full Name:</label>
-      <input id="full_name" formControlName="full_name" required />
-
-      <label for="designation">Designation:</label>
-      <input id="designation" formControlName="designation" required />
-
-      <label for="email">Email Address:</label>
-      <input id="email" formControlName="email_address" required />
-
-      <label for="phone_number">Phone:</label>
-      <input id="phone_number" formControlName="phone_number" required />
-
-      <label for="file">Upload Profile Image:</label>
-      <input
-        type="file"
-        id="file"
-        formControlName="file"
-        (change)="onFileChange($event)"
-      />
-
-      <label for="facebook_link">Facebook Url:</label>
-      <input id="facebook_link" formControlName="facebook_link" required />
-
-      <label for="linkedIn_link">LinkedIn Url:</label>
-      <input id="linkedIn_link" formControlName="linkedIn_link" required />
-
-      <label for="twitter_link">Twitter Url:</label>
-      <input id="twitter_link" formControlName="twitter_link" required />
-
-      <label for="instagram_link">Instagram Url:</label>
-      <input id="instagram_link" formControlName="instagram_link" required />
-
-      <button type="submit">Generate Email Signature</button>
-    </form>
-  </div> -->
-
 <div class="container">
   <div class="card">
     <div class="card-image">
@@ -143,6 +97,7 @@
               accept=".png, .jpg, .jpeg"
               formControlName="file"
               (change)="onFileChange($event)"
+              required
             />
             <label class="upload" for="imageUpload"></label>
           </div>

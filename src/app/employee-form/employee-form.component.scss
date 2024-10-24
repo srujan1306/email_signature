@@ -117,7 +117,8 @@ input {
   font: inherit;
   font-size: 1.125rem;
   padding: 0.25rem 0;
-  &:focus {
+  &:focus,
+  &:user-valid {
     outline: 0;
     border-bottom-color: #6658d3;
     & + .input-label {

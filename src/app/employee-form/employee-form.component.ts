@@ -61,7 +61,6 @@ export class EmployeeFormComponent {
     const phoneNumber = this.employeeForm.get('phone_number')?.value;
     const countryCode = this.employeeForm.get('country_code')?.value;
     const fullPhoneNumber = `${countryCode}${phoneNumber}`;
-    console.log(fullPhoneNumber);
     this.formData.append(
       'full_name',
       this.employeeForm.get('full_name')?.value
@@ -96,7 +95,6 @@ export class EmployeeFormComponent {
     }
     this.EmployeeDetailsService.generate_email_signature(this.formData).then(
       () => {
-        console.log(this.formData);
         this.isLoading = false;
       }
     );

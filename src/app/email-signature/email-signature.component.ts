@@ -42,8 +42,6 @@ export class EmailSignatureComponent implements OnInit {
   margin-left: 10px;
   height: 135px;
   width: 135px;
-  // border: solid 2.5px #98ca3e;
-  // border-radius: 20px;
   img {
     height: 100%;
     width: 100%;
@@ -102,7 +100,7 @@ export class EmailSignatureComponent implements OnInit {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 19%;
+  width: 20%;
   justify-content: space-between;
 }
 .social_media {
@@ -111,49 +109,9 @@ export class EmailSignatureComponent implements OnInit {
   height: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  padding-right: 10px;
+  justify-content: flex-start;
+  gap: 8px;
 }
-
-.facebook {
-  margin: 0px 4px;
-  height: auto;
-  width: 16px;
-  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/facebook.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.linkedIn {
-  margin: 0px 4px;
-  height: auto;
-  width: 17px;
-  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/linkedIn.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.twitter {
-  margin: 0px 4px;
-  height: auto;
-  width: 16px;
-  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/twitter.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.instagram {
-  margin: 0px 4px;
-  height: auto;
-  width: 16px;
-  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/instagram.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-// .procstat_logo {
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   height: 40px;
-//   width: 200px;
-// }
 
 .procstat {
   position: absolute;
@@ -172,11 +130,37 @@ export class EmailSignatureComponent implements OnInit {
   height: 10px;
   width: 16%;
   background: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/_A_Proclink_Venture.png");
-
   background-repeat: no-repeat;
   background-size: contain;
 }
 
+.social-icon {
+  display: inline-block;
+  width: 18px;
+  height: auto;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transition: transform 0.2s;
+}
+
+.facebook {
+  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/facebook.svg");
+}
+
+.linkedIn {
+  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/linkedIn.svg");
+}
+
+.twitter {
+  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/twitter.svg");
+}
+
+.instagram {
+  background-image: url("https://procstatemailsigassets.s3.ap-south-1.amazonaws.com/instagram.svg");
+}
+.social-icon:hover {
+  transform: scale(1.1);
+}
         </style>
       </head>
         <body>
@@ -200,10 +184,26 @@ export class EmailSignatureComponent implements OnInit {
   </div>
   <div class="procstat_info">
     <div class="social_media">
-      <div class="facebook"></div>
-      <div class="linkedIn"></div>
-      <div class="twitter"></div>
-      <div class="instagram"></div>
+      <a
+        href="${this.employee_details.facebook_link}"
+        target="_blank"
+        class="social-icon facebook"
+      ></a>
+      <a
+        href="${this.employee_details.linkedIn_link}"
+        target="_blank"
+        class="social-icon linkedIn"
+      ></a>
+      <a
+        href="${this.employee_details.twitter_link}"
+        target="_blank"
+        class="social-icon twitter"
+      ></a>
+      <a
+        href="${this.employee_details.instagram_link}"
+        target="_blank"
+        class="social-icon instagram"
+      ></a>
     </div>
   </div>
   <div class="procstat"></div>

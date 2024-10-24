@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import {
   FormBuilder,
   FormGroup,
@@ -14,7 +13,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-employee-form',
   standalone: true,
-  imports: [MatFormFieldModule, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './employee-form.component.html',
   styleUrl: './employee-form.component.scss',
 })

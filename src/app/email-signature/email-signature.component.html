@@ -1,6 +1,6 @@
 <div class="main_container">
   <div class="image_container">
-    <img src="{{ employee_details.profile_imageUrl }}" alt="profile picture" />
+    <img src="{{ employee_details.profile_imageUrl }}" alt="Profile Picture" />
   </div>
   <div class="employee_details_container">
     <div class="name_role_container">
@@ -9,10 +9,12 @@
     </div>
     <div class="contact_details">
       <a href="tel:+91{{ employee_details.phone_number }}">
-        <div class="call"></div
-      ></a>
+        <div class="call"></div>
+        <span class="tooltip">+91{{ employee_details.phone_number }}</span>
+      </a>
       <a href="mailto:{{ employee_details.email_address }}">
         <div class="mail"></div>
+        <span class="tooltip">{{ employee_details.email_address }}</span>
       </a>
     </div>
   </div>
@@ -22,22 +24,30 @@
         href="{{ employee_details.facebook_link }}"
         target="_blank"
         class="social-icon facebook"
-      ></a>
+      >
+        <span class="tooltip">{{ employee_details.facebook_link }}</span>
+      </a>
       <a
         href="{{ employee_details.linkedIn_link }}"
         target="_blank"
         class="social-icon linkedIn"
-      ></a>
+      >
+        <span class="tooltip">{{ employee_details.linkedIn_link }}</span>
+      </a>
       <a
         href="{{ employee_details.twitter_link }}"
         target="_blank"
         class="social-icon twitter"
-      ></a>
+      >
+        <span class="tooltip">{{ employee_details.twitter_link }}</span>
+      </a>
       <a
         href="{{ employee_details.instagram_link }}"
         target="_blank"
         class="social-icon instagram"
-      ></a>
+      >
+        <span class="tooltip">{{ employee_details.instagram_link }}</span>
+      </a>
     </div>
   </div>
   <div class="procstat"></div>

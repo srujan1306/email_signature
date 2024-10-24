@@ -85,12 +85,6 @@ export class EmployeeFormComponent {
       }
     );
   }
-  // onFileChange(event: Event) {
-  //   const input = event.target as HTMLInputElement;
-  //   if (input.files && input.files.length > 0) {
-  //     this.selectedFile = input.files[0];
-  //   }
-  // }
   errorMessage: string | null = null;
   maxFileSize: number = 5 * 1024 * 1024;
   onFileChange(event: Event) {
@@ -112,6 +106,11 @@ export class EmployeeFormComponent {
       }
 
       this.selectedFile = file;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.imageUrl = e.target?.result as string; // Set the image URL for preview
+      };
+      reader.readAsDataURL(file);
     }
   }
 

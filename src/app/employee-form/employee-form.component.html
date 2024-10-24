@@ -104,7 +104,9 @@
           <div class="avatar-preview">
             <div
               id="imagePreview"
-              [ngStyle]="{ 'background-image': 'url(' + imageUrl + ')' }"
+              [ngStyle]="{
+                'background-image': 'url(' + (imageUrl ? imageUrl : '') + ')'
+              }"
             ></div>
           </div>
         </div>

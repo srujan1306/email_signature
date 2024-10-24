@@ -4,7 +4,7 @@ import { EmailSignatureComponent } from './email-signature/email-signature.compo
 
 export const routes: Routes = [
   {
-    path: 'form',
+    path: '',
     component: EmployeeFormComponent,
   },
   {

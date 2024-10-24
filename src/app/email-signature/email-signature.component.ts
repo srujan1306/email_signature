@@ -27,7 +27,7 @@ export class EmailSignatureComponent implements OnInit {
       <html>
        <head>
         <style>
-          .main_container {
+.main_container {
   position: relative;
   font-family: "Inter", sans-serif;
   display: flex;
@@ -79,6 +79,13 @@ export class EmailSignatureComponent implements OnInit {
   height: 20px;
   gap: 16px;
   padding-bottom: 18px;
+  a {
+    position: relative;
+  }
+  a:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 .call {
   height: 15px;
@@ -111,6 +118,13 @@ export class EmailSignatureComponent implements OnInit {
   flex-direction: row;
   justify-content: flex-start;
   gap: 8px;
+  a {
+    position: relative;
+  }
+  a:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .procstat {
@@ -161,49 +175,77 @@ export class EmailSignatureComponent implements OnInit {
 .social-icon:hover {
   transform: scale(1.1);
 }
+.tooltip {
+  font-size: 12px;
+  visibility: hidden;
+  width: fit-content;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
         </style>
       </head>
         <body>
           <div class="main_container">
   <div class="image_container">
-    <img src="${this.employee_details.profile_imageUrl}" alt="profile picture" />
+    <img src="{{ employee_details.profile_imageUrl }}" alt="Profile Picture" />
   </div>
   <div class="employee_details_container">
     <div class="name_role_container">
-      <p class="name">${this.employee_details.full_name}</p>
-      <p class="role">${this.employee_details.designation}</p>
+      <p class="name">{{ employee_details.full_name }}</p>
+      <p class="role">{{ employee_details.designation }}</p>
     </div>
     <div class="contact_details">
-      <a href="tel:+91${this.employee_details.phone_number}">
-        <div class="call"></div
-      ></a>
-      <a href="mailto:${this.employee_details.email_address}">
+      <a href="tel:+91{{ employee_details.phone_number }}">
+        <div class="call"></div>
+        <span class="tooltip">+91{{ employee_details.phone_number }}</span>
+      </a>
+      <a href="mailto:{{ employee_details.email_address }}">
         <div class="mail"></div>
+        <span class="tooltip">{{ employee_details.email_address }}</span>
       </a>
     </div>
   </div>
   <div class="procstat_info">
     <div class="social_media">
       <a
-        href="${this.employee_details.facebook_link}"
+        href="{{ employee_details.facebook_link }}"
         target="_blank"
         class="social-icon facebook"
-      ></a>
+      >
+        <span class="tooltip">{{ employee_details.facebook_link }}</span>
+      </a>
       <a
-        href="${this.employee_details.linkedIn_link}"
+        href="{{ employee_details.linkedIn_link }}"
         target="_blank"
         class="social-icon linkedIn"
-      ></a>
+      >
+        <span class="tooltip">{{ employee_details.linkedIn_link }}</span>
+      </a>
       <a
-        href="${this.employee_details.twitter_link}"
+        href="{{ employee_details.twitter_link }}"
         target="_blank"
         class="social-icon twitter"
-      ></a>
+      >
+        <span class="tooltip">{{ employee_details.twitter_link }}</span>
+      </a>
       <a
-        href="${this.employee_details.instagram_link}"
+        href="{{ employee_details.instagram_link }}"
         target="_blank"
         class="social-icon instagram"
-      ></a>
+      >
+        <span class="tooltip">{{ employee_details.instagram_link }}</span>
+      </a>
     </div>
   </div>
   <div class="procstat"></div>

@@ -198,53 +198,53 @@ export class EmailSignatureComponent implements OnInit {
         <body>
           <div class="main_container">
   <div class="image_container">
-    <img src="{{ employee_details.profile_imageUrl }}" alt="Profile Picture" />
+    <img src="${this.employee_details.profile_imageUrl}" alt="Profile Picture" />
   </div>
   <div class="employee_details_container">
     <div class="name_role_container">
-      <p class="name">{{ employee_details.full_name }}</p>
-      <p class="role">{{ employee_details.designation }}</p>
+      <p class="name">${this.employee_details.full_name}</p>
+      <p class="role">${this.employee_details.designation}</p>
     </div>
     <div class="contact_details">
-      <a href="tel:+91{{ employee_details.phone_number }}">
+      <a href="tel:+91${this.employee_details.phone_number}">
         <div class="call"></div>
-        <span class="tooltip">+91{{ employee_details.phone_number }}</span>
+        <span class="tooltip">+91${this.employee_details.phone_number}</span>
       </a>
-      <a href="mailto:{{ employee_details.email_address }}">
+      <a href="mailto:${this.employee_details.email_address}">
         <div class="mail"></div>
-        <span class="tooltip">{{ employee_details.email_address }}</span>
+        <span class="tooltip">${this.employee_details.email_address}</span>
       </a>
     </div>
   </div>
   <div class="procstat_info">
     <div class="social_media">
       <a
-        href="{{ employee_details.facebook_link }}"
+        href="${this.employee_details.facebook_link}"
         target="_blank"
         class="social-icon facebook"
       >
-        <span class="tooltip">{{ employee_details.facebook_link }}</span>
+        <span class="tooltip">${this.employee_details.facebook_link}</span>
       </a>
       <a
-        href="{{ employee_details.linkedIn_link }}"
+        href="${this.employee_details.linkedIn_link}"
         target="_blank"
         class="social-icon linkedIn"
       >
-        <span class="tooltip">{{ employee_details.linkedIn_link }}</span>
+        <span class="tooltip">${this.employee_details.linkedIn_link}</span>
       </a>
       <a
-        href="{{ employee_details.twitter_link }}"
+        href="${this.employee_details.twitter_link}"
         target="_blank"
         class="social-icon twitter"
       >
-        <span class="tooltip">{{ employee_details.twitter_link }}</span>
+        <span class="tooltip">${this.employee_details.twitter_link}</span>
       </a>
       <a
-        href="{{ employee_details.instagram_link }}"
+        href="${this.employee_details.instagram_link}"
         target="_blank"
         class="social-icon instagram"
       >
-        <span class="tooltip">{{ employee_details.instagram_link }}</span>
+        <span class="tooltip">${this.employee_details.instagram_link}</span>
       </a>
     </div>
   </div>

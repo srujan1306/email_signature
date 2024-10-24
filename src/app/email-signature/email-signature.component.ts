@@ -206,9 +206,9 @@ export class EmailSignatureComponent implements OnInit {
       <p class="role">${this.employee_details.designation}</p>
     </div>
     <div class="contact_details">
-      <a href="tel:+91${this.employee_details.phone_number}">
+      <a href="tel:${this.employee_details.phone_number}">
         <div class="call"></div>
-        <span class="tooltip">+91${this.employee_details.phone_number}</span>
+        <span class="tooltip">${this.employee_details.phone_number}</span>
       </a>
       <a href="mailto:${this.employee_details.email_address}">
         <div class="mail"></div>

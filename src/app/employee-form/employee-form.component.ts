@@ -24,9 +24,12 @@ export class EmployeeFormComponent {
   selectedFile: File | null = null;
   imageUrl: string = 'http://i.pravatar.cc/500?img=7'; // Default image
   isLoading: boolean = false;
+  countryCodes: any[] = [];
+  selectedCountryCode: string = '';
+
   constructor(
     private fb: FormBuilder,
-    httpClient: HttpClient,
+    private http: HttpClient,
     private router: Router,
     private EmployeeDetailsService: EmployeeDetailsService
   ) {
@@ -35,6 +38,7 @@ export class EmployeeFormComponent {
       designation: ['', [Validators.required, Validators.minLength(2)]],
       email_address: ['', [Validators.required, Validators.email]],
       phone_number: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      country_code: ['', [Validators.required]],
       file: [''],
       facebook_link: [''],
       linkedIn_link: [''],
@@ -42,8 +46,22 @@ export class EmployeeFormComponent {
       instagram_link: [''],
     });
   }
+
+  ngOnInit() {
+    this.loadCountryCodes();
+  }
+
+  loadCountryCodes() {
+    this.http.get<any[]>('CountryCodes.json').subscribe((data) => {
+      this.countryCodes = data;
+    });
+  }
   createSignature() {
     this.isLoading = true;
+    const phoneNumber = this.employeeForm.get('phone_number')?.value;
+    const countryCode = this.employeeForm.get('country_code')?.value;
+    const fullPhoneNumber = `${countryCode}${phoneNumber}`;
+    console.log(fullPhoneNumber);
     this.formData.append(
       'full_name',
       this.employeeForm.get('full_name')?.value
@@ -56,10 +74,7 @@ export class EmployeeFormComponent {
       'email_address',
       this.employeeForm.get('email_address')?.value
     );
-    this.formData.append(
-      'phone_number',
-      this.employeeForm.get('phone_number')?.value
-    );
+    this.formData.append('phone_number', fullPhoneNumber);
     this.formData.append(
       'facebook_link',
       this.employeeForm.get('facebook_link')?.value
@@ -81,6 +96,7 @@ export class EmployeeFormComponent {
     }
     this.EmployeeDetailsService.generate_email_signature(this.formData).then(
       () => {
+        console.log(this.formData);
         this.isLoading = false;
       }
     );
@@ -108,7 +124,7 @@ export class EmployeeFormComponent {
       this.selectedFile = file;
       const reader = new FileReader();
       reader.onload = (e) => {
-        this.imageUrl = e.target?.result as string; // Set the image URL for preview
+        this.imageUrl = e.target?.result as string;
       };
       reader.readAsDataURL(file);
     }

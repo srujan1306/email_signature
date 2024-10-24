@@ -1,18 +1,3 @@
-// .form_container {
-//   background-color: antiquewhite;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   width: 100%;
-// }
-
-// .form {
-//   display: flex;
-//   flex-direction: column;
-//   width: 200px;
-//   padding-bottom: 20px;
-// }
-
 .container {
   background-image: url("../../assets/background2.png");
   background-repeat: no-repeat;
@@ -101,11 +86,38 @@ input {
     margin-top: 1.5rem;
   }
 }
+.phone_input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  padding-top: 1.5rem;
+}
+.country_code_container {
+  width: 25%;
+  .country-code {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background-color: transparent;
+    border-bottom: 2px solid #eee;
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.25rem 0;
+  }
+}
 
 .input-label {
   color: #8597a3;
   position: absolute;
   top: 1.5rem;
+  transition: 0.25s ease;
+}
+.phone_input_label {
+  color: #8597a3;
+  position: absolute;
+  top: 1.5rem;
+  left: 34%;
   transition: 0.25s ease;
 }
 
@@ -121,7 +133,8 @@ input {
   &:user-valid {
     outline: 0;
     border-bottom-color: #6658d3;
-    & + .input-label {
+    & + .input-label,
+    & + .phone_input_label {
       color: #6658d3;
       transform: translateY(-1.5rem);
     }

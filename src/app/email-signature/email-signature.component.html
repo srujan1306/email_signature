@@ -8,9 +8,9 @@
       <p class="role">{{ employee_details.designation }}</p>
     </div>
     <div class="contact_details">
-      <a href="tel:+91{{ employee_details.phone_number }}">
+      <a href="tel:{{ employee_details.phone_number }}">
         <div class="call"></div>
-        <span class="tooltip">+91{{ employee_details.phone_number }}</span>
+        <span class="tooltip">{{ employee_details.phone_number }}</span>
       </a>
       <a href="mailto:{{ employee_details.email_address }}">
         <div class="mail"></div>

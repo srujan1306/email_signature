@@ -92,9 +92,12 @@ input {
   justify-content: space-between;
   position: relative;
   padding-top: 1.5rem;
+  .input-field {
+    width: 65%;
+  }
 }
 .country_code_container {
-  width: 25%;
+  width: 30%;
   .country-code {
     width: 100%;
     height: 100%;
@@ -117,7 +120,7 @@ input {
   color: #8597a3;
   position: absolute;
   top: 1.5rem;
-  left: 34%;
+  left: 36%;
   transition: 0.25s ease;
 }
 
